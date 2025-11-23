@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MAAGA LTD | Managing Acquisitions & Global Accounting</title>
+    <link rel="icon" type="image/png" href="/assets/icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              maaga: {
+                navy: '#021226',       /* Deepest Midnight Blue */
+                primary: '#003366',    /* Corporate Trust Blue */
+                blue: '#005EB8',       /* Royal Blue for accents */
+                accent: '#4DACF0',     /* Soft Blue for highlights */
+                grey: '#F5F7FA',       /* Premium Light Grey */
+                white: '#FFFFFF',
+                charcoal: '#1A202C',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+            },
+            backgroundImage: {
+              'gradient-subtle': 'linear-gradient(180deg, #F5F7FA 0%, #FFFFFF 100%)',
+              'gradient-dark': 'linear-gradient(180deg, #021226 0%, #051C2C 100%)',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'pulse-glow': {
+                '0%, 100%': { opacity: '0.4' },
+                '50%': { opacity: '0.6' },
+              },
+              'shift-align': {
+                '0%': { transform: 'translate(0, 0) rotate(0deg)' },
+                '33%': { transform: 'translate(10px, -5px) rotate(1deg)' }, 
+                '66%': { transform: 'translate(-5px, 5px) rotate(-0.5deg)' },
+                '100%': { transform: 'translate(0, 0) rotate(0deg)' },
+              },
+              'scroll-bounce': {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(5px)' },
+              }
+            },
+            animation: {
+              float: 'float 6s ease-in-out infinite',
+              'float-delayed': 'float 6s ease-in-out 3s infinite',
+              fadeIn: 'fadeIn 0.8s ease-out forwards',
+              'pulse-glow': 'pulse-glow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'shift-slow': 'shift-align 20s ease-in-out infinite',
+              'shift-slower': 'shift-align 30s ease-in-out reverse infinite',
+              'scroll-bounce': 'scroll-bounce 2s ease-in-out infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* Smooth Scroll Behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #021226;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #005EB8;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #4DACF0;
+      }
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-white text-maaga-charcoal antialiased selection:bg-maaga-blue selection:text-white">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
