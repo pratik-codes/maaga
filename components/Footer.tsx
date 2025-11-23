@@ -1,8 +1,15 @@
 import React from 'react';
-import { NAV_LINKS, SOCIAL_LINKS, COMPANY_INFO, FOOTER } from '../constants';
+import { useData } from '../context/DataContext';
+import { transformSocialLinks } from '../constants';
 import Logo from './Logo';
 
 const Footer: React.FC = () => {
+  const { data } = useData();
+  const NAV_LINKS = data?.navLinks || [];
+  const SOCIAL_LINKS = transformSocialLinks(data?.socialLinks || []);
+  const COMPANY_INFO = data?.companyInfo || { name: 'MAAGA', tagline: '', email: '', locations: [] };
+  const FOOTER = data?.footer || { taglineExtended: '', exploreTitle: 'Explore', contactTitle: 'Contact' };
+
   return (
     <footer className="bg-white text-maaga-navy pt-16 md:pt-20 pb-8 md:pb-10 border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">

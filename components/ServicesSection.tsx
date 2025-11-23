@@ -1,9 +1,19 @@
 import React from 'react';
-import { SERVICES, SERVICES_SECTION } from '../constants';
+import { useData } from '../context/DataContext';
+import { transformServices } from '../constants';
 import { ArrowRight } from 'lucide-react';
 import { RevealOnScroll } from './RevealOnScroll';
 
 const ServicesSection: React.FC = () => {
+  const { data } = useData();
+  const SERVICES = transformServices(data?.services || []);
+  const SERVICES_SECTION = data?.servicesSection || { 
+    subtitle: '', 
+    title: '', 
+    titleAccent: '', 
+    linkText: 'View all capabilities' 
+  };
+
   // Helper function to get specific styles based on the service index
   const getServiceStyles = (index: number) => {
     switch (index) {

@@ -1,8 +1,18 @@
 import React from 'react';
-import { CLIENT_SEGMENTS, VALUE_PROPOSITION } from '../constants';
+import { useData } from '../context/DataContext';
+import { transformClientSegments } from '../constants';
 import { RevealOnScroll } from './RevealOnScroll';
 
 const ValueProposition: React.FC = () => {
+  const { data } = useData();
+  const CLIENT_SEGMENTS = transformClientSegments(data?.clientSegments || []);
+  const VALUE_PROPOSITION = data?.valueProposition || { 
+    subtitle: '', 
+    title: '', 
+    titleAccent: '', 
+    description: '' 
+  };
+
   return (
     <section className="bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto">

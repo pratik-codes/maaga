@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 import { Mail, MapPin } from 'lucide-react';
 import { RevealOnScroll } from './RevealOnScroll';
-import { COMPANY_INFO, CONTACT } from '../constants';
+import { useData } from '../context/DataContext';
 
 const ContactSection: React.FC = () => {
+  const { data } = useData();
+  const COMPANY_INFO = data?.companyInfo || { email: '', locations: [] };
+  const CONTACT = data?.contact || { subtitle: '', title: '', description: '' };
+
   useEffect(() => {
     // Load Tally embed script
     const script = document.createElement('script');

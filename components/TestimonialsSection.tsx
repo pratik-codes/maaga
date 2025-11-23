@@ -1,9 +1,13 @@
 import React from 'react';
 import { Quote } from 'lucide-react';
-import { TESTIMONIALS, TESTIMONIALS_SECTION } from '../constants';
+import { useData } from '../context/DataContext';
 import { RevealOnScroll } from './RevealOnScroll';
 
 const TestimonialsSection: React.FC = () => {
+  const { data } = useData();
+  const TESTIMONIALS = data?.testimonials || [];
+  const TESTIMONIALS_SECTION = data?.testimonialsSection || { subtitle: '', title: '' };
+
   return (
     <section id="testimonials" className="py-32 bg-maaga-grey border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">

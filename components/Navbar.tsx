@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { NAV_LINKS, COMPANY_INFO, NAVBAR } from '../constants';
+import { useData } from '../context/DataContext';
 import Logo from './Logo';
 
 const Navbar: React.FC = () => {
+  const { data } = useData();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  
+  const NAV_LINKS = data?.navLinks || [];
+  const COMPANY_INFO = data?.companyInfo || { name: 'MAAGA' };
+  const NAVBAR = data?.navbar || { brandSubtitle: 'Limited', ctaText: 'Contact Us', mobileCTA: 'Book a Consultation' };
 
   useEffect(() => {
     const handleScroll = () => {

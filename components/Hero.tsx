@@ -1,8 +1,20 @@
 import React from 'react';
 import { ArrowRight, CheckCircle, TrendingUp, Shield, FileCheck, ChevronDown } from 'lucide-react';
-import { VALUE_ADDITIONS, HERO } from '../constants';
+import { useData } from '../context/DataContext';
+import { transformValueAdditions } from '../constants';
 
 const Hero: React.FC = () => {
+  const { data } = useData();
+  const VALUE_ADDITIONS = transformValueAdditions(data?.valueAdditions || []);
+  const HERO = data?.hero || { 
+    subtitle: '', 
+    title: '', 
+    titleAccent: '', 
+    description: '', 
+    ctaPrimary: 'Book Consultation', 
+    ctaSecondary: 'Explore Services' 
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex flex-col justify-center pt-24 bg-maaga-navy text-white overflow-hidden">
       

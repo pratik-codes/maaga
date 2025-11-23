@@ -1,8 +1,24 @@
 import React from 'react';
 import { RevealOnScroll } from './RevealOnScroll';
-import { TEAM_MEMBERS, ABOUT_SECTION, TEAM_SECTION } from '../constants';
+import { useData } from '../context/DataContext';
 
 const AboutSection: React.FC = () => {
+  const { data } = useData();
+  const TEAM_MEMBERS = data?.team || [];
+  const ABOUT_SECTION = data?.about || { 
+    subtitle: '', 
+    title: '', 
+    paragraphs: [], 
+    quote: '', 
+    image: '', 
+    imageAlt: '' 
+  };
+  const TEAM_SECTION = data?.teamSection || { 
+    subtitle: '', 
+    title: '', 
+    description: '' 
+  };
+
   return (
     <section id="about" className="py-20 md:py-32 bg-maaga-navy text-white relative overflow-hidden">
       {/* Decorative architectural line */}

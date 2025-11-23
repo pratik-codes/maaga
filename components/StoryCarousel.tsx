@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
-import { STORY_SLIDES, STORY_SECTION } from '../constants';
+import { useData } from '../context/DataContext';
 
 const StoryCarousel: React.FC = () => {
+  const { data } = useData();
+  const STORY_SLIDES = data?.storySlides || [];
+  const STORY_SECTION = data?.storySection || { subtitle: '', title: '' };
+
   const [current, setCurrent] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -15,12 +19,16 @@ const StoryCarousel: React.FC = () => {
   };
 
   useEffect(() => {
+    if (STORY_SLIDES.length === 0) return;
+    
     let interval: any;
     if (isAutoPlaying) {
       interval = setInterval(nextSlide, 6000);
     }
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+  }, [isAutoPlaying, STORY_SLIDES.length]);
+
+  if (STORY_SLIDES.length === 0) return null;
 
   return (
     <section id="story" className="bg-white py-32 relative overflow-hidden">
