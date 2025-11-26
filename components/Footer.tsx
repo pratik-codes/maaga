@@ -23,7 +23,10 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="flex flex-col justify-center">
                     <span className="font-serif font-bold text-lg md:text-xl text-maaga-navy leading-none">
-                        {COMPANY_INFO.name}
+                        {COMPANY_INFO.name} <span className="text-base md:text-lg">Ltd</span>
+                    </span>
+                    <span className="text-[0.65rem] md:text-[0.7rem] tracking-wide text-maaga-blue font-medium">
+                        <span className="font-semibold">M</span>anaging <span className="font-semibold">A</span>ssets & <span className="font-semibold">G</span>lobal <span className="font-semibold">A</span>ccounting
                     </span>
                 </div>
             </div>

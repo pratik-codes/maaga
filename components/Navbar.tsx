@@ -36,10 +36,10 @@ const Navbar: React.FC = () => {
             </div>
             <div className="flex flex-col justify-center">
                 <span className="font-serif font-bold text-xl tracking-wide text-maaga-navy leading-none">
-                    {COMPANY_INFO.name}
+                    {COMPANY_INFO.name} <span className="text-base">Ltd</span>
                 </span>
-                <span className="text-[0.65rem] uppercase tracking-[0.25em] text-maaga-blue font-medium mt-1">
-                    {NAVBAR.brandSubtitle}
+                <span className="text-[0.7rem] tracking-wide text-maaga-blue font-medium">
+                    <span className="font-semibold">M</span>anaging <span className="font-semibold">A</span>ssets & <span className="font-semibold">G</span>lobal <span className="font-semibold">A</span>ccounting
                 </span>
             </div>
         </div>
